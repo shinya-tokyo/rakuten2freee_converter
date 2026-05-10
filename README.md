@@ -1,0 +1,2 @@
+# rakuten2freee_converter
+楽天証券の有価証券取引報告書をfreee会計で読み込めるようにするものです。
