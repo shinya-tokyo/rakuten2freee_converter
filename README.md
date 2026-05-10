@@ -11,7 +11,9 @@ python rakuten_to_free.py
 
 input_file >>
 
-3. 次に、freee会計用に出力するCSVファイルの名前(とパス)を入力する。
+3. 次が現れたら、freee会計用に出力するCSVファイルの名前(とパス)を入力する。
+
+output_file >>
 
 4. プレビューがコマンドライン上に出る。
 
