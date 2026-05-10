@@ -24,12 +24,16 @@ output_file >>
 PS C:\Users\ユーザー名> rakuten_to_freee-2.py
 
 input_file >>
+
 c:\Users\ユーザー名\20260509_torihou.csv
-input_file isc:\Users\ユーザー名\20260509_torihou.csv
+
+input_file is　c:\Users\ユーザー名\20260509_torihou.csv
 
 output_file >>
+
 out_converted.csv
-ouput_file isout_converted.csv
+
+ouput_file is　out_converted.csv
 
 読み込み中: c:\Users\ユーザー名\20260509_torihou.csv
 変換対象: 1件の取引
