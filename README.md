@@ -36,9 +36,13 @@ out_converted.csv
 ouput_file is out_converted.csv
 
 読み込み中: c:\Users\ユーザー名\20260509_torihou.csv
+
 変換対象: 1件の取引
+
 出力完了: out_converted.csv
 
 プレビュー:
+
 日付,借方科目,借方金額,貸方科目,貸方金額,摘要
+
 2026/01/27,有価証券,1811000,普通預金,1811000,キオクシアホールディングス 100株買付
