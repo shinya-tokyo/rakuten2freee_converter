@@ -1,7 +1,17 @@
 # rakuten2freee_converter
 楽天証券の有価証券取引報告書をfreee会計で読み込めるようにするものです。
+新しく『現金残高』列を作れるようにしました。
 
-# 使い方
+# 大まかな流れ
+
+楽天証券さん で、有価証券取引報告書(CSV)を出力して、
+rakuten_to_freee.py で、必要データを抽出します。
+
+抽出したデータを、freeeさん のCSVインポート機能でインポートします。
+
+「日付」「現金残高」「適用」をインポートするとよいかと思います。
+
+# 本プログラム( rakuten_to_freee.py )の使い方
 
 1．次を、実行する。
 
@@ -21,13 +31,13 @@ output_file >>
 
 # 入出力例
 
-PS C:\Users\ユーザー名> rakuten_to_freee-2.py
+PS C:\Users\ユーザー名> rakuten_to_freee.py
 
 input_file >>
 
-c:\Users\ユーザー名\20260509_torihou.csv
+c:\Users\ユーザー名\20260509_torihou-test.csv
 
-input_file is c:\Users\ユーザー名\20260509_torihou.csv
+input_file is c:\Users\ユーザー名\20260509_torihou-test.csv
 
 output_file >>
 
@@ -37,12 +47,11 @@ ouput_file is out_converted.csv
 
 読み込み中: c:\Users\ユーザー名\20260509_torihou.csv
 
-変換対象: 1件の取引
+変換対象: 2件の取引
 
 出力完了: out_converted.csv
 
 プレビュー:
-
-日付,借方科目,借方金額,貸方科目,貸方金額,摘要
-
-2026/01/27,有価証券,1811000,普通預金,1811000,キオクシアホールディングス 100株買付
+日付,借方科目,借方金額,貸方科目,貸方金額,現金残高,摘要
+2026/01/28,普通預金,1865250,有価証券,1865250,1865250,キオクシアホールディングス 100株売付
+2026/01/28,有価証券,1879400,普通預金,1879400,-1879400,キオクシアホールディングス 100株買付
