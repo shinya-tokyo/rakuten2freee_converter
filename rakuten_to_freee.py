@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-楽天証券の取引報告書CSVをfreeeの仕訳形式に変換
-使用方法: python rakuten_to_freee.py
+楽天証券の取引報告書CSVをfreeeの仕訳形式に変換（新フォーマット対応版）
+使用方法: python rakuten_to_freee-2.py <入力ファイル> [出力ファイル]
 """
 
 import csv
@@ -103,7 +103,7 @@ def parse_rakuten_csv(input_file):
 def convert_to_freee_format(transactions):
     """freee仕訳形式に変換"""
     freee_rows = [
-        ['日付', '借方科目', '借方金額', '貸方科目', '貸方金額', '摘要']
+        ['日付', '借方科目', '借方金額', '貸方科目', '貸方金額', '現金残高' ,'摘要']
     ]
 
     for tx in transactions:
@@ -121,6 +121,7 @@ def convert_to_freee_format(transactions):
                 str(amount),
                 '普通預金',
                 str(amount),
+                str(-amount),
                 remarks
             ])
         elif baibai == '売付':
@@ -131,6 +132,7 @@ def convert_to_freee_format(transactions):
                 str(amount),
                 '有価証券',
                 str(amount),
+                str(amount),
                 remarks
             ])
 
@@ -138,6 +140,17 @@ def convert_to_freee_format(transactions):
 
 def main():
     # コマンドライン引数をパース
+    """
+    if len(sys.argv) < 2:
+        print("使用方法:")
+        print("  python rakuten_to_freee-2.py <入力ファイル> [出力ファイル]")
+        print()
+        print("例:")
+        print('  python rakuten_to_freee-2.py "20260509_torihou (2).csv"')
+        print('  python rakuten_to_freee-2.py "20260509_torihou (2).csv" freee_import.csv')
+        sys.exit(1)
+    """
+
     print("input_file >>")
     input_file = input()
     print("input_file is" + input_file)
@@ -152,6 +165,16 @@ def main():
     print("output_file >>")
     output_file = input()
     print("ouput_file is" + output_file)
+
+    """
+    # 出力ファイル名の決定
+    if len(sys.argv) >= 3:
+        output_file = sys.argv[2]
+    else:
+        # デフォルト: 入力ファイル名_freee.csv
+        base_name = os.path.splitext(input_file)[0]
+        output_file = f"{base_name}_freee.csv"
+    """
 
     print(f"読み込み中: {input_file}")
     transactions = parse_rakuten_csv(input_file)
