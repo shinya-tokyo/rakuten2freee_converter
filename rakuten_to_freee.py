@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 楽天証券の取引報告書CSVをfreeeの仕訳形式に変換（新フォーマット対応版）
